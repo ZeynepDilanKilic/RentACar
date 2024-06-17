@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Core.Persistence.Paging;
+using Core.Persistence.Dynamic;
 namespace Core.Persistence.Repositories;
 
 public interface IRepository<TEntity, TEntityId>: IQuery<TEntity>
@@ -34,7 +35,7 @@ public interface IRepository<TEntity, TEntityId>: IQuery<TEntity>
     Paginate<TEntity> GetListByDynamic(
         DynamicQuery dynamic,
         Expression<Func<TEntity, bool>> predicate = null,
-        Func<IQueryable<TEntity>>, IIncludableQueryable<TEntity, object>? include = null,
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         int index = 0,
         int size = 10,
         bool withDeleted = false,

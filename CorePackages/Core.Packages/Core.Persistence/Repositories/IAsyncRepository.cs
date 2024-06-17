@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Persistence.Paging;
+using Core.Persistence.Dynamic;
 
 
 namespace Core.Persistence.Repositories;
@@ -36,7 +37,7 @@ public interface IAsyncRepository<TEntity, TEntityId>: IQuery<TEntity>
     Task<Paginate<TEntity>> GetListByDynamicAsync(
         DynamicQuery dynamic,
         Expression<Func<TEntity, bool>> predicate = null,
-        Func<IQueryable<TEntity>>, IIncludableQueryable<TEntity, object>? include = null,
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
         int index = 0,
         int size = 10,
         bool withDeleted = false,
