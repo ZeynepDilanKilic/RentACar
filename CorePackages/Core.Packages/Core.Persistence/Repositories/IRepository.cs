@@ -53,13 +53,13 @@ public interface IRepository<TEntity, TEntityId>: IQuery<TEntity>
 
     TEntity Add(TEntity entity);
 
-    ICollection<TEntity> AddRange(ICollection<TEntity> entity);
+    ICollection<TEntity> AddRange(ICollection<TEntity> entities);
 
     TEntity Update(TEntity entity);
 
-    ICollection<TEntity> UpdateRange(ICollection<TEntity> entity);
+    ICollection<TEntity> UpdateRange(ICollection<TEntity> entities);
 
     TEntity Delete(TEntity entity, bool permanent = false);
 
-    ICollection<TEntity> DeleteRange(ICollection<TEntity> entity, bool permanent = false);
+    ICollection<TEntity> DeleteRange(ICollection<TEntity> entities, bool permanent = false);
 }
